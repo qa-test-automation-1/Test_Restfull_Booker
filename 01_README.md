@@ -60,7 +60,7 @@ QA-AUTOMATION/
 │   └── workflows/
 │
 ├── Dockerfile
-└── .gitignore
+
 ```
 
 
