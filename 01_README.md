@@ -23,7 +23,6 @@ web application and its REST API.
 
 ## Project Structure
 
-```text
 QA-AUTOMATION/
 │
 ├── README.md
@@ -31,22 +30,27 @@ QA-AUTOMATION/
 ├── docs/
 │   ├── 01_test_plan.md
 │   ├── 02_test_case_postman.md
-│   └── 03_test_case_jmeter.md
+│   ├── 03_test_case_jmeter.md
+│   └── 04_test_case_owasp.md
 │
 ├── postman/
 │   ├── collections/
-│   ├── environments/
-│   └── reports/
+│   └── environments/
 │
 ├── jmeter/
-│   ├── tests/
-│   └── reports/
+│   └── tests/
 │
 ├── playwright/
-│   ├── tests/
-│   └── reports/
+│   └── tests/
+│
+├── owasp/
+│   └── configs/
 │
 ├── reports/
+│   ├── postman/
+│   ├── jmeter/
+│   ├── playwright/
+│   └── owasp/
 │
 ├── .github/
 │   └── workflows/
