@@ -23,10 +23,13 @@ web application and its REST API.
 
 ## Project Structure
 
+
+
 QA-AUTOMATION/
 │
 ├── README.md
-│
+
+│```
 ├── docs/
 │   ├── 01_test_plan.md
 │   ├── 02_test_case_postman.md
