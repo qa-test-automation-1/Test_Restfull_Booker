@@ -57,6 +57,7 @@ Główne cele testów:
 - sprawdzenie obsługi poprawnych i niepoprawnych danych wejściowych,
 - sprawdzenie podstawowych scenariuszy związanych z rezerwacjami,
 - określenie zachowania API pod zwiększonym obciążeniem.
+- sprawdzenie podstawowych podatności na ataki
 
 ---
 
