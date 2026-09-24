@@ -115,6 +115,36 @@ Testy zostaną przygotowane i wykonane przy użyciu **Apache JMeter**.
 
 ---
 
+### 4.4 Testy bezpieczeństwa
+
+Testy bezpieczeństwa będą koncentrować się na identyfikacji podstawowych
+podatności aplikacji webowej oraz API.
+
+W ramach testów zostaną sprawdzone m.in.:
+
+- podstawowe podatności aplikacji webowej,
+- podatności związane z obsługą żądań HTTP,
+- nieprawidłowe nagłówki bezpieczeństwa,
+- problemy związane z konfiguracją aplikacji,
+- podstawowe podatności API,
+- potencjalne problemy związane z walidacją danych wejściowych,
+- informacje ujawniane przez aplikację,
+- podstawowe podatności zgodne z OWASP Top 10.
+
+Testy bezpieczeństwa będą wykonywane przy użyciu **OWASP ZAP (Zed Attack Proxy)**.
+
+OWASP ZAP będzie wykorzystywany do automatycznego skanowania aplikacji
+webowej oraz wybranych endpointów API.
+
+Wyniki skanowania będą zapisywane w formie raportów i przechowywane
+w katalogu:
+
+`reports/owasp/`
+
+
+---
+
+
 ## 5. Poza zakresem
 
 Poza zakresem projektu znajdują się:
@@ -138,6 +168,7 @@ Projekt będzie wykorzystywał następujące rodzaje testów:
 | API Testing | Postman | Manualne/projektowe testowanie API |
 | API Automation | Newman | Automatyczne wykonywanie kolekcji Postman |
 | Performance Testing | JMeter | Testowanie zachowania API pod obciążeniem |
+| Security Testing | OWASP ZAP | Automatyczne wykrywanie podstawowych podatności aplikacji i API |
 | CI Automation | GitHub Actions | Automatyczne uruchamianie testów |
 
 ---
