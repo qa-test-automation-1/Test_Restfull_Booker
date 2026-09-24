@@ -25,11 +25,12 @@ web application and its REST API.
 
 
 
-QA-AUTOMATION/
-│
-├── README.md
+## 🔗 Project Structure
 
-│```
+```text
+QA-AUTOMATION/
+├── README.md
+│
 ├── docs/
 │   ├── 01_test_plan.md
 │   ├── 02_test_case_postman.md
@@ -60,5 +61,6 @@ QA-AUTOMATION/
 │
 ├── Dockerfile
 └── .gitignore
+```
 
 
