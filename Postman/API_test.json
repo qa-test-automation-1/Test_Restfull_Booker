@@ -1,0 +1,383 @@
+{
+  "info": {
+    "_postman_id": "d70bfedf-6a98-4ed0-8ba6-6908e8d11f88",
+    "name": "Booker_API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58258164",
+    "_collection_link": "https://go.postman.co/collection/58258164-d70bfedf-6a98-4ed0-8ba6-6908e8d11f88?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\nconst response = pm.response.json();\r\npm.collectionVariables.set(\"token\", response.token);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Referer",
+            "value": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/auth/login",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", () => {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api//booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "",
+            "booking",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\n    pm.response.to.have.status(201);\n});\n\n\nconst responseData = pm.response.json();\n\npm.collectionVariables.set(\"bookingId\", responseData.bookingid);"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const today = new Date();\r\n\r\nconst checkout = new Date(today);\r\ncheckout.setDate(checkout.getDate() + 1);\r\n\r\npm.collectionVariables.set(\r\n    \"checkin\",\r\n    today.toISOString().split(\"T\")[0]\r\n);\r\n\r\npm.collectionVariables.set(\r\n    \"checkout\",\r\n    checkout.toISOString().split(\"T\")[0]\r\n);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{   \r\n   \r\n    \"roomid\": 14,\r\n    \"firstname\": \"Jonathan\",\r\n    \"lastname\": \"Dean\",\r\n    \"depositpaid\": true,\r\n    \"email\": \"test@email.com\",\r\n    \"phone\": \"07123456789\",\r\n    \"bookingdates\": {\r\n        \"checkin\": \"{{checkin}}\",\r\n        \"checkout\": \"{{checkout}}\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/booking/",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "booking",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const responseData = pm.response.json();\r\n\r\npm.collectionVariables.set(\"roomid\", responseData.roomid);\r\npm.collectionVariables.set(\"depositpaid\", responseData.depositpaid);\r\npm.collectionVariables.set(\"checkin\", responseData.bookingdates.checkin);\r\npm.collectionVariables.set(\"checkout\", responseData.bookingdates.checkout);\r\n\r\npm.collectionVariables.set(\"beforeFirstname\", responseData.firstname);\r\npm.collectionVariables.set(\"beforeLastname\", responseData.lastname);\r\npm.collectionVariables.set(\"beforeRoomid\", responseData.roomid);\r\npm.collectionVariables.set(\"beforeDepositpaid\", responseData.depositpaid);\r\npm.collectionVariables.set(\"beforeCheckin\", responseData.bookingdates.checkin);\r\npm.collectionVariables.set(\"beforeCheckout\", responseData.bookingdates.checkout);\r\n\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/api/booking/{{bookingId}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "booking",
+            "{{bookingId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "\r\n\r\n\r\n\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"bookingdates\": {\r\n        \"checkin\": \"{{checkin}}\",\r\n        \"checkout\": \"{{checkout}}\"\r\n    },\r\n    \"bookingid\": {{bookingId}},\r\n    \"depositpaid\": {{depositpaid}},\r\n    \"firstname\": \"Jan\",\r\n    \"lastname\": \"Kowalski\",\r\n    \"roomid\": {{roomid}}\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/booking/{{bookingId}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "booking",
+            "{{bookingId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "\r\n\r\n"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const responseData = pm.response.json();\r\n\r\npm.collectionVariables.set(\"beforeFirstname\", responseData.firstname);\r\npm.collectionVariables.set(\"beforeLastname\", responseData.lastname);\r\npm.collectionVariables.set(\"beforeRoomid\", responseData.roomid);\r\npm.collectionVariables.set(\"beforeDepositpaid\", responseData.depositpaid);\r\npm.collectionVariables.set(\"beforeCheckin\", responseData.bookingdates.checkin);\r\npm.collectionVariables.set(\"beforeCheckout\", responseData.bookingdates.checkout);\r\n\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n\r\n"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token = {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/api/booking/{{bookingId}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "booking",
+            "{{bookingId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 202\", function () {\n    pm.response.to.have.status(202);\n});\n\n\n"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api//booking/{{bookingId}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "",
+            "booking",
+            "{{bookingId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "checkout",
+      "value": ""
+    },
+    {
+      "key": "checkin",
+      "value": ""
+    },
+    {
+      "key": "bookingId",
+      "value": ""
+    },
+    {
+      "key": "depositpaid",
+      "value": ""
+    },
+    {
+      "key": "roomid",
+      "value": ""
+    },
+    {
+      "key": "beforeFirstname",
+      "value": ""
+    },
+    {
+      "key": "beforeLastname",
+      "value": ""
+    },
+    {
+      "key": "beforeRoomid",
+      "value": ""
+    },
+    {
+      "key": "beforeDepositpaid",
+      "value": ""
+    },
+    {
+      "key": "beforeCheckin",
+      "value": ""
+    },
+    {
+      "key": "beforeCheckout",
+      "value": ""
+    }
+  ]
+}
