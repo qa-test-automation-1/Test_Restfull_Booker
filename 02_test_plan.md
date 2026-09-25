@@ -41,6 +41,7 @@ Aplikacja udostępnia REST API wykorzystywane do komunikacji z backendem.
 `https://automationintesting.online/api/`
 
 Dokumentacja API jest dostępna za pomocą Swagger UI.
+<br>
 https://automationintesting.online/api/booking/swagger-ui/index.html 
 [https://automationintesting.online](https://www.postman.com/automation-in-testing/restful-booker-collections/collection/55eh7vh/restful-booker?sideView=agentMode)
 
