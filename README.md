@@ -10,7 +10,7 @@ web application and its REST API.
 
 **Restful Booker Platform**
 
-🔗 https://automationintesting.online/
+ https://automationintesting.online/
 
 ## Testing Scope
 
