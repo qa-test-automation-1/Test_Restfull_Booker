@@ -25,7 +25,7 @@ web application and its REST API.
 
 
 
-## 🔗 Project Structure
+##  Project Structure
 
 ```text
 QA-AUTOMATION/
