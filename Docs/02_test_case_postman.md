@@ -2,7 +2,7 @@
 
 ## Dokumentacja API
 
--  [Booking API – Swagger UI](https://automationintesting.online/api/booking/swagger-ui/index.html)]
+-  [Booking API – Swagger UI](https://automationintesting.online/api/booking/swagger-ui/index.html)
 -  [Restful Booker Platform – Postman Documentation](https://www.postman.com/automation-in-testing/restful-booker-collections/collection/ci13ds3/restful-booker-platform)
 
 
