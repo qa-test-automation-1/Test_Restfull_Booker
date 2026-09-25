@@ -1,5 +1,10 @@
 # Postman API --> Przypadki testowe
 
+## Dokumentacja API
+
+-  [Booking API – Swagger UI](https://automationintesting.online/api/booking/swagger-ui/index.html)
+-  [Restful Booker Platform – Postman Documentation](https://www.postman.com/automation-in-testing/restful-booker-collections/documentation/ci13ds3/restful-booker-platform)
+
 
 
 ## TC-API-001 – Authentication
