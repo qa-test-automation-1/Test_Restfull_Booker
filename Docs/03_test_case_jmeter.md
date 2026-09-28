@@ -162,73 +162,8 @@ wymagań systemowych.
 
 ---
 
-## TC-JMETER-004 – Test wydajności tworzenia rezerwacji
 
-### Cel
-
-Obserwacja zachowania endpointu odpowiedzialnego za tworzenie
-rezerwacji przy zwiększonym obciążeniu.
-
-### Endpoint
-
-`POST /api/booking`
-
-### Scenariusz
-
-- Liczba użytkowników wirtualnych: `50`
-- Czas narastania obciążenia (Ramp-up): `30 sekund`
-- Czas trwania testu: `5 minut`
-
-### Dane wejściowe
-
-```json
-{
-  "firstname": "John",
-  "lastname": "Doe",
-  "totalprice": 150,
-  "depositpaid": true,
-  "bookingdates": {
-    "checkin": "2026-10-01",
-    "checkout": "2026-10-05"
-  },
-  "additionalneeds": "Breakfast"
-}
-```
-
-### Kroki
-
-1. Uruchomić test z 50 użytkownikami wirtualnymi.
-2. Stopniowo zwiększać obciążenie przez 30 sekund.
-3. Każdy użytkownik wykonuje `POST /api/booking`.
-4. Rejestrować czas odpowiedzi.
-5. Rejestrować przepustowość.
-6. Rejestrować liczbę błędów.
-7. Zapisać wyniki testu.
-
-### Mierzone parametry
-
-- Średni czas odpowiedzi
-- 90. percentyl
-- 95. percentyl
-- Przepustowość (Throughput)
-- Współczynnik błędów (Error Rate)
-- Liczba poprawnie wykonanych żądań
-
-### Oczekiwany rezultat
-
-Określenie zachowania endpointu `POST /api/booking` podczas zwiększonego
-obciążenia.
-
-Wyniki należy przeanalizować pod kątem:
-
-- czasu odpowiedzi,
-- liczby błędów,
-- przepustowości,
-- poprawności obsługi żądań.
-
----
-
-## TC-JMETER-005 – Test długotrwałego obciążenia
+## TC-JMETER-004 – Test długotrwałego obciążenia
 
 ### Cel
 
@@ -284,8 +219,7 @@ Należy zwrócić szczególną uwagę na:
 | TC-JMETER-001 | Test bazowej wydajności | 10 | 10 s | 1 min |
 | TC-JMETER-002 | Test wydajności przy obciążeniu | 50 | 30 s | 5 min |
 | TC-JMETER-003 | Test przeciążeniowy | 100 | 60 s | 5 min |
-| TC-JMETER-004 | Test wydajności tworzenia rezerwacji | 50 | 30 s | 5 min |
-| TC-JMETER-005 | Test długotrwałego obciążenia | 20 | 30 s | 30 min |
+| TC-JMETER-004 | Test długotrwałego obciążenia | 20 | 30 s | 30 min |
 
 ---
 
@@ -334,8 +268,7 @@ Testy wydajnościowe Restful Booker
 ├── TC-JMETER-001 – Test bazowej wydajności
 ├── TC-JMETER-002 – Test wydajności przy obciążeniu
 ├── TC-JMETER-003 – Test przeciążeniowy
-├── TC-JMETER-004 – Test wydajności tworzenia rezerwacji
-└── TC-JMETER-005 – Test długotrwałego obciążenia
+└── TC-JMETER-004 – Test długotrwałego obciążenia
 ```
 
 ---
