@@ -17,12 +17,8 @@ web application and its REST API.
 - **UI Testing** – Playwright
 - **API Testing** – Postman / Newman
 - **Performance Testing** – Apache JMeter
-- **Security Testing** – OWASP-based testing
 - **CI/CD** – GitHub Actions
 - **Containerization** – Docker
-
-## Project Structure
-
 
 
 ##  Project Structure
@@ -35,7 +31,7 @@ QA-AUTOMATION/
 │   ├── 01_test_plan.md
 │   ├── 02_test_case_postman.md
 │   ├── 03_test_case_jmeter.md
-│   └── 04_test_case_owasp.md
+│   
 │
 ├── postman/
 │   ├── collections/
@@ -47,14 +43,12 @@ QA-AUTOMATION/
 ├── playwright/
 │   └── tests/
 │
-├── owasp/
-│   └── configs/
 │
 ├── reports/
 │   ├── postman/
 │   ├── jmeter/
 │   ├── playwright/
-│   └── owasp/
+│   
 │
 ├── .github/
 │   └── workflows/
