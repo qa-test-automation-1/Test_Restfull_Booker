@@ -38,7 +38,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+          "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -288,7 +288,7 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.test(\"Status code is 202\", function () {\n    pm.response.to.have.status(202);\n});\n\n\n"
+              "pm.test(\"Status code is 202\", function () {\r\n    pm.response.to.have.status(202);\r\n});"
             ]
           }
         }
@@ -306,18 +306,17 @@
           "raw": "",
           "options": {
             "raw": {
-              "language": "text"
+              "language": "json"
             }
           }
         },
         "url": {
-          "raw": "{{host}}/api//booking/{{bookingId}}",
+          "raw": "{{host}}/api/booking/{{bookingId}}",
           "host": [
             "{{host}}"
           ],
           "path": [
             "api",
-            "",
             "booking",
             "{{bookingId}}"
           ]
