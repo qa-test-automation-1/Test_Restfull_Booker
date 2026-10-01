@@ -8,8 +8,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show files
-        run: ls -la
+      - name: Build Docker image
+        run: docker build -t qa-tests .
+
+      - name: Create reports directory
+        run: mkdir -p reports/postman
+
+      - name: Run Postman tests
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}/reports:/app/reports" \
+            qa-tests \
+            newman run Postman/API_test.json \
+            --env-var "host=https://automationintesting.online" \
+            --reporters cli,htmlextra \
+            --reporter-htmlextra-export reports/postman/report.html
+
+      - name: Upload Postman report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postman-report
+          path: reports/postman/
