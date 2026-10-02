@@ -1,6 +1,9 @@
 name: API Tests
 
 on:
+  schedule:
+    - cron: '0 21 * * *'
+      timezone: 'Europe/Warsaw'
   workflow_dispatch:
 
 jobs:
